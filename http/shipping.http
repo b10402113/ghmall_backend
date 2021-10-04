@@ -1,0 +1,20 @@
+POST http://localhost:8000/user/login
+Content-Type: application/json
+
+{
+  "password": "a7935776",
+  "email": "andycheeehigh@gmail.com"
+}
+###
+POST http://localhost:8000/shippings
+Content-Type: application/json
+
+{
+
+  "stAddr": "台北市大安區文昌街142號壹樓全部"
+}
+###
+POST http://localhost:8000/shipping
+Content-Type: application/x-www-form-urlencoded
+
+stAddr=台北市大安區文昌街142號壹樓全部&

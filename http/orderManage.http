@@ -1,0 +1,14 @@
+POST http://localhost:8000/user/login
+Content-Type: application/json
+
+{
+  "password": "a7935776",
+  "phone": "0975518436"
+}
+###
+GET http://localhost:8000/manage/order
+###
+GET http://localhost:8000/manage/order/detail?order_no=1621081954724
+###
+
+PUT http://localhost:8000/manage/order?order_no=1622224567719&status=10

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.ghmall.dao.OrderItemMapper">
+    <insert id="batchInsert" parameterType="list">
+        insert into ghmall_order_item (user_id, order_no,
+        product_id, product_name, product_image,
+        current_unit_price, quantity, total_price)
+        values
+        <foreach collection="orderItemList" index="index" item="item" separator=",">
+            (
+            #{item.userId},
+            #{item.orderNo},
+            #{item.productId},
+            #{item.productName},
+            #{item.productImage},
+            #{item.currentUnitPrice},
+            #{item.quantity},
+            #{item.totalPrice}
+            )
+        </foreach>
+    </insert>
+    <select id="selectByOrderNoSet" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from ghmall_order_item
+        <where>
+            <if test="orderNoSet.size() > 0">
+                order_no in
+                <foreach collection="orderNoSet" item="item" index="index" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+    </select>
+</mapper>

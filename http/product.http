@@ -1,0 +1,11 @@
+GET http://localhost:8000/products?categoryId=100002
+###
+GET http://localhost:8000/products?categoryId=100002&pageNum=1&pageSize=1
+###
+GET http://localhost:8000/products/27
+###
+GET http://localhost:8000/products/search?productName=水
+###
+GET http://localhost:8000/products/search?productId=26
+###
+GET http://localhost:8000/products/search?productName=A&productId=26

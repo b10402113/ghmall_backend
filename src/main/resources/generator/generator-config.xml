@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="Mysql" targetRuntime="MyBatis3" defaultModelType="flat">
+
+        <!-- 自动检查关键字，为关键字增加反引号 -->
+        <property name="autoDelimitKeywords" value="true"/>
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <!--覆盖生成XML文件-->
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
+        <!-- 生成的实体类添加toString()方法 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+
+        <!-- 不生成注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/ghmall?characterEncoding=UTF8"
+                        userId="root"
+                        password="a7935776">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- domain类的位置 -->
+        <javaModelGenerator targetPackage="com.java.ghmall.pojo" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <!--            <property name="trimStrings" value="true" />-->
+        </javaModelGenerator>
+
+        <!-- mapper xml的位置 -->
+        <sqlMapGenerator targetProject="src/main/resources"
+                         targetPackage="mapper"/>
+
+        <!-- mapper类的位置 -->
+        <javaClientGenerator targetProject="src/main/java"
+                             targetPackage="com.java.ghmall.dao"
+                             type="XMLMAPPER"/>
+
+        <!--<table tableName="demo" domainObjectName="Demo"/>-->
+        <!--<table tableName="category"/>-->
+        <!--<table tableName="doc"/>-->
+        <!--<table tableName="content"/>-->
+        <!--<table tableName="user"/>-->
+<!--        <table tableName="ghmall_category" domainObjectName="Category" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
+<!--        <table tableName="ghmall_category" domainObjectName="Category" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
+        <!--        <table tableName="ghmall_cart" domainObjectName="Cart" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
+<!--        <table tableName="ghmall_order" domainObjectName="Order" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
+        <table tableName="ghmall_article" domainObjectName="Article" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>
+<!--        <table tableName="ghmall_order_item" domainObjectName="OrderItem" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
+<!--        <table tableName="ghmall_pay_info" domainObjectName="PayInfo" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
+        <!--        <table tableName="ghmall_shipping" domainObjectName="Shipping" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
+<!--        <table tableName="ghmall_shipping" domainObjectName="Shipping" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
+<!--                <table tableName="ghmall_product" domainObjectName="Product" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
+<!--        <table tableName="ghmall_user" domainObjectName="User" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
+
+    </context>
+</generatorConfiguration>

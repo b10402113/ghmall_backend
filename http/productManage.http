@@ -1,0 +1,27 @@
+POST http://localhost:8000/user/login
+Content-Type: application/json
+
+{
+  "password": "a7935776",
+  "phone": "0975518436"
+}
+###
+GET http://localhost:8000/manage/product/list?pageSize=20
+
+###
+POST http://localhost:8000/manage/product/
+Content-Type: application/json
+
+{
+"categoryId": "10001",
+  "name": "水果更新",
+  "subtitle": "水果類",
+  "price": 300,
+  "originPrice": 400,
+  "stock": 200,
+  "status": 1,
+  "detail": "好吃的水果",
+  "tag": 1
+}
+###
+DELETE http://localhost:8000/manage/product?productId=34

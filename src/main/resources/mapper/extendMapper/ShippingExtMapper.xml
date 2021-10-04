@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.ghmall.dao.ShippingMapper">
+    <delete id="deleteByIdAndUid" parameterType="map">
+    delete from ghmall_shipping
+    where id = #{shippingId,jdbcType=INTEGER}
+    and user_id = #{uid,jdbcType=INTEGER}
+  </delete>
+    <select id="selectByUid" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from ghmall_shipping
+        where user_id = #{uid,jdbcType=INTEGER}
+    </select>
+    <select id="selectByUidAndShippingId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from ghmall_shipping
+        where id = #{shippingId,jdbcType=INTEGER}
+        and user_id = #{uid,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectByIdSet" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from ghmall_shipping
+        <where>
+            <if test="idSet.size() > 0">
+                id in
+                <foreach collection="idSet" item="item" index="index" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+    </select>
+</mapper>

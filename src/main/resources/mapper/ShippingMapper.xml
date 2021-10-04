@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.ghmall.dao.ShippingMapper">
+  <resultMap id="BaseResultMap" type="com.java.ghmall.pojo.Shipping">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="process_id" jdbcType="VARCHAR" property="processId" />
+    <result column="st_cate" jdbcType="VARCHAR" property="stCate" />
+    <result column="st_code" jdbcType="VARCHAR" property="stCode" />
+    <result column="st_name" jdbcType="VARCHAR" property="stName" />
+    <result column="st_addr" jdbcType="VARCHAR" property="stAddr" />
+    <result column="st_tel" jdbcType="VARCHAR" property="stTel" />
+    <result column="shipping_type" jdbcType="INTEGER" property="shippingType" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, process_id, st_cate, st_code, st_name, st_addr, st_tel, shipping_type, 
+    create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ghmall_shipping
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from ghmall_shipping
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.java.ghmall.pojo.Shipping" >
+    insert into ghmall_shipping (id, user_id, process_id, 
+      st_cate, st_code, st_name, 
+      st_addr, st_tel, shipping_type, 
+      create_time, update_time)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{processId,jdbcType=VARCHAR}, 
+      #{stCate,jdbcType=VARCHAR}, #{stCode,jdbcType=VARCHAR}, #{stName,jdbcType=VARCHAR}, 
+      #{stAddr,jdbcType=VARCHAR}, #{stTel,jdbcType=VARCHAR}, #{shippingType,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.java.ghmall.pojo.Shipping" useGeneratedKeys="true" keyProperty="id">
+    insert into ghmall_shipping
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="processId != null">
+        process_id,
+      </if>
+      <if test="stCate != null">
+        st_cate,
+      </if>
+      <if test="stCode != null">
+        st_code,
+      </if>
+      <if test="stName != null">
+        st_name,
+      </if>
+      <if test="stAddr != null">
+        st_addr,
+      </if>
+      <if test="stTel != null">
+        st_tel,
+      </if>
+      <if test="shippingType != null">
+        shipping_type,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="processId != null">
+        #{processId,jdbcType=VARCHAR},
+      </if>
+      <if test="stCate != null">
+        #{stCate,jdbcType=VARCHAR},
+      </if>
+      <if test="stCode != null">
+        #{stCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stName != null">
+        #{stName,jdbcType=VARCHAR},
+      </if>
+      <if test="stAddr != null">
+        #{stAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="stTel != null">
+        #{stTel,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingType != null">
+        #{shippingType,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.java.ghmall.pojo.Shipping">
+    update ghmall_shipping
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="processId != null">
+        process_id = #{processId,jdbcType=VARCHAR},
+      </if>
+      <if test="stCate != null">
+        st_cate = #{stCate,jdbcType=VARCHAR},
+      </if>
+      <if test="stCode != null">
+        st_code = #{stCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stName != null">
+        st_name = #{stName,jdbcType=VARCHAR},
+      </if>
+      <if test="stAddr != null">
+        st_addr = #{stAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="stTel != null">
+        st_tel = #{stTel,jdbcType=VARCHAR},
+      </if>
+      <if test="shippingType != null">
+        shipping_type = #{shippingType,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.java.ghmall.pojo.Shipping">
+    update ghmall_shipping
+    set user_id = #{userId,jdbcType=INTEGER},
+      process_id = #{processId,jdbcType=VARCHAR},
+      st_cate = #{stCate,jdbcType=VARCHAR},
+      st_code = #{stCode,jdbcType=VARCHAR},
+      st_name = #{stName,jdbcType=VARCHAR},
+      st_addr = #{stAddr,jdbcType=VARCHAR},
+      st_tel = #{stTel,jdbcType=VARCHAR},
+      shipping_type = #{shippingType,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+</mapper>

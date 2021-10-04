@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.ghmall.dao.UserMapper">
+    <select id="countByUsername" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select
+    count(1)
+    from ghmall_user
+    where username = #{username,jdbcType=VARCHAR}
+  </select>
+
+    <select id="countByUid" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select
+    count(1)
+    from ghmall_user
+    where id = #{uid,jdbcType=INTEGER}
+  </select>
+    <select id="countByEmail" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select
+    count(1)
+    from ghmall_user
+    where email = #{email,jdbcType=VARCHAR}
+  </select>
+
+    <select id="selectByUsername" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from ghmall_user
+        where username = #{username,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectByEmail" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from ghmall_user
+        where email = #{email,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectByPhone" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from ghmall_user
+        where phone = #{phone,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectByReferralUser" parameterType="java.lang.String" resultType="java.lang.Integer">
+        select
+        id
+        from ghmall_user
+        where referral_code = #{referralCode,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectAll" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from ghmall_user
+        order by create_time DESC
+    </select>
+</mapper>

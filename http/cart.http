@@ -1,0 +1,37 @@
+
+POST http://localhost:8000/carts
+Content-Type: application/json
+
+{
+"productId":"28",
+  "quantity":"2"
+}
+###
+GET http://localhost:8000/carts
+###
+PUT http://localhost:8000/carts/26
+Content-Type: application/json
+
+{
+  "quantity":"5",
+  "selected":"true"
+
+}
+###
+GET http://localhost:8000/carts/products/sum
+###
+POST http://localhost:8000/carts/26
+Content-Type: application/json
+
+{
+  "quantity":"5",
+  "selected":"true"
+
+}
+###
+DELETE http://localhost:8000/carts/28
+###
+POST http://localhost:8000/cartssdf
+Content-Type: application/json
+
+{}

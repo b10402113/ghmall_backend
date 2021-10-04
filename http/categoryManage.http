@@ -1,0 +1,20 @@
+POST http://localhost:8000/user/login
+Content-Type: application/json
+
+{
+  "password": "a7935776",
+  "phone": "0975518436"
+}
+###
+
+POST http://localhost:8000/manage/category?categoryId=0&categoryName=好吃
+###
+PUT http://localhost:8000/manage/category?categoryId=100030&categoryName=好吃
+
+###
+PUT http://localhost:8000/manage/category/status?categoryId=100030&status=false
+###
+GET http://localhost:8000/manage/category
+###
+PUT http://localhost:8000/manage/category/sortOrder?categoryId=100034&sortOrder=2
+###

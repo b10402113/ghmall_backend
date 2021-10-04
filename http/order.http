@@ -1,0 +1,15 @@
+POST http://localhost:8000/orders
+Content-Type: application/json
+
+{
+  "shippingId": 38,
+  "receiverName": "大胖",
+  "receiverPhone": "0975518436",
+  "receiverEmail": "b10400000@gmail.com"
+}
+###
+GET http://localhost:8000/orders
+###
+PUT http://localhost:8000/orders/1622218304344?status=10
+
+

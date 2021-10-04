@@ -1,0 +1,48 @@
+POST http://localhost:8000/user/register
+Content-Type: application/json
+
+{
+  "username":"adsfasdf",
+  "password": "asadfasdfdmin",
+  "phone": "09755184333",
+  "email": "andycheeehig2h1@gmail.com",
+  "verifiedCode": "683941",
+  "ref": "abcdefg"
+}
+###
+
+POST http://localhost:8000/user/login
+Content-Type: application/json
+
+{
+"password": "a7935776",
+"phone": "0975518436"
+}
+###
+GET http://localhost:8080/user/checkValid?email=andycheeehigh@gmail.com&code=123456
+Content-Type: application/json
+###
+GET http://localhost:8000/user/
+###
+PUT http://localhost:8000/user/
+Content-Type: application/json
+
+{
+  "username": "鄭若英"
+}
+###
+GET http://bf0db662168b.ngrok.io/localhost:8000/user/
+
+###
+POST http://localhost:8000/user/login
+Content-Type: application/json
+
+{
+  "password": "a7935776",
+  "phone": "0975518436"
+}
+
+###
+POST http://localhost:8000/user/phoneVerified?phone=09755184333
+###
+GET http://localhost:8000/user/referral?referralCode=abcdefg
